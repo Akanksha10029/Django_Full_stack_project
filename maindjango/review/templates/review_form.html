@@ -6,7 +6,24 @@ Django Review Page
 
 {% block content %}
 <div class="full_body">
-    <h1 class="text-3xl text-red-500 flex items-center justify-center font-bold px-[100px]">test template</h1>
+    <h1 class="text-3xl text-red-500 flex items-center justify-center font-bold px-[100px]">Review form page</h1>
+
+    <h2 class="text-white">
+        {% if form.instance.pk %} 
+        Edit Review
+        {% else %}
+        Add Review
+        {% endif %}
+
+        <form method="post" enctype="multipart/form-data class='form">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class="border p-3" type="submit">Submit</button>
+        </form>
+        <a href="{% url 'review_list' %}">Back to Review list Hub</a>
+
+
+    </h2>
 </div>
 {% endblock %}
     
