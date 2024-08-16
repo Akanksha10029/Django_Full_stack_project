@@ -11,6 +11,8 @@ class Review(models.Model):
         (5, '5 - Excellent'),
     ]
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    video_title = models.CharField(max_length=500, default='Unknown Title')
+    video_url = models.URLField(max_length=2000,default='Unknown URL')
     text = models.TextField(max_length=2000)
     photo = models.ImageField(upload_to='photos/', blank=True,null=True)
     rating = models.PositiveSmallIntegerField(choices=RATING_CHOICES, default=3)
