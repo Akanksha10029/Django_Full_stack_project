@@ -1,0 +1,14 @@
+nav a{
+    
+    transition: color 0.3s; 
+}
+
+/* Hover effect for all <a> elements except for the "Home" link */
+nav a:not(:first-child) {
+    color: #d1d5db; /* Light gray color for links other than Home */
+    font-weight: 600;
+}
+
+nav a:not(:first-child):hover {
+    color: #7cc0f7; /* White color on hover */
+}
