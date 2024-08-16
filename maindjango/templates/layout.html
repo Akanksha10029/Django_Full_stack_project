@@ -10,12 +10,32 @@
         Review Management system
         {% endblock %}
     </title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
     {% tailwind_css %}
 </head>
-<body class="bg-orange-300">
-    <div class="container">
-        {% block content %}
-        {% endblock %}
+<body class="bg-gray-800">
+    <div class="pt-3 mb-4 shadow-xl">
+        <div class="flex justify-between items-center px-[100px] w-full h-auto">
+            <div class="logo text-[#ff5353] font-mono text-2xl font-bold cursor-pointer relative">
+                <a href="#" class="flex items-center">
+                    {% comment %} <span class="text-orange-400 animate-bounce">_</span> {% endcomment %}
+                    <span class="text-[#ff5353]">Review </span>
+                    <span class="text-orange-400 animate-bounce">.</span>
+                </a>
+            </div>
+            <nav>
+                <div class="flex justify-between gap-4 items-center max-w-screen-xl mx-auto">
+                    <a class="text-white font-bold text-lg hover:text-orange-400 transition duration-300 active" href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Reviews</a>
+                    <a href="#">Submit Review</a>
+                    <a href="#">Help/Support</a>
+                </div>
+            </nav>
+        </div>
+        <hr class='mt-4 border-[#9a9999af]'/>
     </div>
+    
+    {% block content %}{% endblock %}
 </body>
 </html>

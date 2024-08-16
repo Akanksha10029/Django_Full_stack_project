@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Django Review list page
+{% endblock %}
+
+{% block content %}
+<div class="full_body">
+    <h1 class="text-3xl text-red-500 flex items-center justify-center font-bold px-[100px]">Review list test template</h1>
+
+    <a href="{% url 'review_create'%}">Create a Review</a>
+    
+</div>
+{% endblock %}
+    
+</body>
+</html>
