@@ -1,0 +1,42 @@
+.form{
+    display: grid;
+    grid-template-columns: auto;
+    gap: 20px;
+    align-items: center;
+    border-radius: 1rem;
+    background: transparent;
+    backdrop-filter: blur(15px);
+
+}
+.form div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;  
+    align-items: center;
+    flex-wrap: wrap;
+}
+/* .form div input{
+    max-width: 250px;
+    } */
+    
+.form textarea{
+    resize: none;
+}
+.form label {
+    font-weight: bold;
+    color: white;
+    margin-right: 3em;
+}
+/* .form input:checked{
+
+} */
+
+.form input, select{
+    min-width: 21rem;
+}
+
+@media (max-width: 1000px) {
+    .form input, select{
+        min-width: 5rem;
+    }
+}
