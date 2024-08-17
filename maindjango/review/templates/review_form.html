@@ -1,29 +1,26 @@
 {% extends "layout.html" %}
-
+{% load static %}
 {% block title %}
 Django Review Page
 {% endblock %}
 
 {% block content %}
-<div class="full_body">
+<div class="full_body border-2 flex justify-center items-center flex-col">
     <h1 class="text-3xl text-red-500 flex items-center justify-center font-bold px-[100px]">Review form page</h1>
 
-    <h2 class="text-white">
+    <h2 class="text-white text-3xl">
         {% if form.instance.pk %} 
         Edit Review
         {% else %}
         Add Review
         {% endif %}
-
-        <form method="post" enctype="multipart/form-data class='form">
-            {% csrf_token %}
-            {{form.as_p}}
-            <button class="border p-3" type="submit">Submit</button>
-        </form>
-        <a href="{% url 'review_list' %}">Back to Review list Hub</a>
-
-
     </h2>
+    <form method="post" enctype="multipart/form-data" class="form bg-red-600 p-8 flex justify-center items-center flex-col w-[40%]">
+    {% csrf_token %}
+    {{form.as_div}}
+    <button class="hover:border p-3 bg-red-500 w-[10rem] hover:bg-red-700 text-white font-semibold text-xl" type="submit">Submit</button>
+    </form>
+    <a class='text-white' href="{% url 'review_list' %}">Back to Review list Hub</a>
 </div>
 {% endblock %}
     
