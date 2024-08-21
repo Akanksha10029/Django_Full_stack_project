@@ -57,7 +57,7 @@ def my_reviews(request):
 
 
 def register(request):
-    if request == 'POST':
+    if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
@@ -66,6 +66,7 @@ def register(request):
             login(request, user)
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}!')
+            # print(user.username, user.password)
             return redirect('review_list')
                
     else:
