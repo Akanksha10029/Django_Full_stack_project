@@ -6,8 +6,16 @@ Django Review Page
 
 {% block content %}
 <div class="full_body">
-    <h1 class="text-3xl text-red-500 flex items-center justify-center font-bold px-[100px]">test template</h1>
+    <h1 class="text-3xl text-red-500 flex items-center justify-center font-bold px-[100px]">Are you sure that you want to delete the review?</h1>
 </div>
+
+<form method="post">
+    {% csrf_token %}
+    <div class="del_canc flex justify-center items-center p-6 gap-4 font-bold text-gray-800">
+        <button class="border rounded-xl p-3 bg-red-500">Delete</button>
+        <a class="border rounded-xl p-3 bg-green-500" href="{% url 'review_list' %}">Cancel</a>
+    </div>
+</form>
 {% endblock %}
     
 </body>

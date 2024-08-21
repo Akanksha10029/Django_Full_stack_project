@@ -15,9 +15,7 @@
     align-items: center;
     flex-wrap: wrap;
 }
-/* .form div input{
-    max-width: 250px;
-    } */
+
     
 .form textarea{
     resize: none;
@@ -27,13 +25,12 @@
     color: white;
     margin-right: 3em;
 }
-/* .form input:checked{
 
-} */
 
 .form input, select{
     min-width: 21rem;
 }
+
 
 @media (max-width: 1000px) {
     .form input, select{

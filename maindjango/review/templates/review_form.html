@@ -5,7 +5,7 @@ Django Review Page
 {% endblock %}
 
 {% block content %}
-<div class="full_body border-2 flex justify-center items-center flex-col">
+<div class="full_body flex justify-center items-center flex-col">
     <h1 class="text-3xl text-red-500 flex items-center justify-center font-bold px-[100px]">Review form page</h1>
 
     <h2 class="text-white text-3xl">
@@ -15,12 +15,15 @@ Django Review Page
         Add Review
         {% endif %}
     </h2>
-    <form method="post" enctype="multipart/form-data" class="form bg-red-600 p-8 flex justify-center items-center flex-col w-[40%]">
+
+    <form method="post" enctype="multipart/form-data" class="form bg-transparent border-gray-600  shadow-2xl p-8 flex justify-center items-center flex-col w-[40%]">
+        
     {% csrf_token %}
     {{form.as_div}}
-    <button class="hover:border p-3 bg-red-500 w-[10rem] hover:bg-red-700 text-white font-semibold text-xl" type="submit">Submit</button>
+    <button class="hover:border p-2 bg-gray-500 w-[10rem] hover:bg-gray-700 text-white font-semibold text-xl border-gray-500 border-none rounded" type="submit">Submit</button>
     </form>
-    <a class='text-white' href="{% url 'review_list' %}">Back to Review list Hub</a>
+
+    <a class='text-white m-4 text-xl' href="{% url 'review_list' %}">Back to Review list Hub</a>
 </div>
 {% endblock %}
     

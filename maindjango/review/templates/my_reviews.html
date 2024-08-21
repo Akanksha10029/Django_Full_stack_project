@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}My Reviews{% endblock %}
+
+{% block content %}
+<div class="review-list-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <h2 class="text-3xl text-white font-bold mb-8">My Reviews</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for review in reviews %}
+            <div class="review-item bg-gray-800 rounded-2xl overflow-hidden shadow-2xl mt-2">
+                <img class="w-full h-44 object-cover" src="{{ review.photo.url }}" alt="{{ review.video_title }}">
+                <div class="p-4">
+                    <h3 class="text-2xl text-orange-400 font-semibold mb-2">{{ review.video_title }}</h3>
+                    <p class="text-gray-300 mb-4">{{ review.text }}</p>
+                    <a href="{{ review.video_url }}" target="_blank" class="text-blue-300 underline hover:text-blue-500">
+                        Watch Video
+                    </a>
+                    <a href="{% url 'review_list' %}" class="flex py-4 text-orange-400 hover:underline">Read More</a>
+                </div>
+            </div>
+        {% empty %}
+            <p class="text-white">You haven't submitted any reviews yet.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
