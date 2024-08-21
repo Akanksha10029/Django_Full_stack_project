@@ -4,6 +4,7 @@ from .forms import ReviewForm, UserRegistrationForm
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
+from django.contrib import messages
 
 
 # Create your views here.
@@ -63,6 +64,8 @@ def register(request):
             user.set_password(form.cleaned_data['password1'])
             user.save()
             login(request, user)
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username}!')
             return redirect('review_list')
                
     else:
