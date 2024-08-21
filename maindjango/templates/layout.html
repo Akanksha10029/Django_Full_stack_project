@@ -28,15 +28,29 @@
             <nav>
                 <div class="flex justify-between gap-4 items-center max-w-screen-xl mx-auto">
                     <a class="text-white font-bold text-lg hover:text-orange-400 transition duration-300 active" href="{% url 'review_list' %}">Home</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Help/Support</a>
                     
                     {% if user.is_authenticated %}
+
                     <a href="{% url 'my_reviews' %}">My Reviews</a>
+                    <form method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="text-white  hover:text-orange-400 transition duration-300">
+                            Logout
+                        </button>
+                    </form>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="text-white font-bold text-lg hover:text-orange-400 transition duration-300">
+                        Login
+                    </a>
+                    <a href="{% url 'register' %}" class="text-white font-bold text-lg hover:text-orange-400 transition duration-300 ml-4">
+                        Register
+                    </a>
                     {% endif %}
                     
                     
-                    <a href="#">Submit Review</a>
-                    <a href="#">Help/Support</a>
-                    <a href="#">LogOut</a>
+                    
                 </div>
             </nav>
         </div>
